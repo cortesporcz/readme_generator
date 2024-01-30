@@ -64,11 +64,9 @@ const questions = [{
     name: 'license',
     message: 'What License applies to your application?',
     choices: [
-        'None',
-        'Apache license 2.0',
-        'Boost Software License 1.0',
         'MIT',
-        'Mozilla Public License 2.0',
+        'Apache license 2.0',
+        'GPL 3.0',
     ]        
 },
 {
