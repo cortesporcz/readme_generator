@@ -1,9 +1,10 @@
 // TODO: Include packages needed for this application
+// If there is no license, return an empty string
 
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./js_files/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [{
@@ -124,10 +125,19 @@ const questions = [{
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.log(err) : console.log('README.md file has been created!')
+    );
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then((response) => {
+        console.log(response);
+        writeToFile('README.md', generateMarkdown(response));
+    });
+}
 
 // Function call to initialize app
 init();
